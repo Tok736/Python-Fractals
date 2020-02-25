@@ -3,6 +3,7 @@ from math import sqrt
 from time import sleep
 
 setup(1.0, 1.0)
+bgcolor("#000000")
 
 def move(x, y):
     up()
@@ -28,6 +29,7 @@ def minkowski(l, n):
 l = 900
 for n in range(1, 7):
     reset()
+    color("#d3fdfe")
     hideturtle()
     tracer(0)
     minkowski(l, n)

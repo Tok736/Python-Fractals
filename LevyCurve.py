@@ -5,37 +5,34 @@ from time import sleep
 setup(1.0, 1.0)
 bgcolor("#000000")
 
-
 def move(x, y):
     up()
     goto(x, y)
     down()
 
-def draw(factor, rotates, k, l, n):
+def draw(rotates, k, l, n):
     if n == 1:
         forward(l)
         return
-    f = factor
-    left(factor * rotates[0])
+
+    left(rotates[0])
     for rot in rotates[1:]:
-        f *= -1
-        draw(f, rotates, k, l / k, n - 1)
-        left(factor * rot)
+        draw(rotates, k, l / k, n - 1)
+        left(rot)
 
-def sierpinski(l, n):
-    move(-l / 2, -sqrt(3) / 4 * l)
-    rotates = [60, -60, -60, 60]
-    k = 2
-    draw(1, rotates, k, l, n)
+def minkowski(l, n):
+    move(-l / 2, -l / 4)
+    rotates = [45, -90, 45]
+    k = 2/sqrt(2)
+    draw(rotates, k, l, n)
 
-
-l = 700
-for n in range(1, 12):
+l = 500
+for n in range(1, 18):
     reset()
     color("#d3fdfe")
     hideturtle()
     tracer(0)
-    sierpinski(l, n)
+    minkowski(l, n)
     update()
     sleep(0.5)
 

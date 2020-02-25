@@ -3,6 +3,7 @@ from math import sqrt
 from time import sleep
 
 setup(1.0, 1.0)
+bgcolor("#000000")
 
 def move(x, y):
     up()
@@ -43,6 +44,7 @@ for n in range(1, 7):
     reset()
     hideturtle()
     tracer(0)
+    color("#d3fdfe")
     snowflake(l, n)
     update()
     sleep(1)
